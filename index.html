@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Notes with Alarm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="fas fa-book"></i> Elegant Notes</h1>
+            <div class="time-display" id="current-time"></div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <button class="btn new-note" id="new-note-btn">
+                    <i class="fas fa-plus"></i> New Note
+                </button>
+                <div class="note-list" id="note-list"></div>
+            </aside>
+
+            <section class="note-editor">
+                <div class="toolbar">
+                    <button class="tool-btn" data-command="bold"><i class="fas fa-bold"></i></button>
+                    <button class="tool-btn" data-command="italic"><i class="fas fa-italic"></i></button>
+                    <button class="tool-btn" data-command="underline"><i class="fas fa-underline"></i></button>
+                    <button class="tool-btn" data-command="insertUnorderedList"><i class="fas fa-list-ul"></i></button>
+                    <button class="tool-btn" data-command="insertOrderedList"><i class="fas fa-list-ol"></i></button>
+                    <input type="color" class="color-picker" id="text-color">
+                    <div class="alarm-controls">
+                        <input type="datetime-local" id="alarm-time">
+                        <button class="btn set-alarm" id="set-alarm-btn">
+                            <i class="fas fa-bell"></i> Set Alarm
+                        </button>
+                    </div>
+                </div>
+                <div class="note-title-container">
+                    <input type="text" id="note-title" placeholder="Note Title...">
+                    <button class="btn delete-note" id="delete-note-btn">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+                <div class="note-content" id="note-content" contenteditable="true" spellcheck="true"></div>
+            </section>
+        </div>
+    </div>
+
+    <audio id="alarm-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+
+    <div class="alarm-modal" id="alarm-modal">
+        <div class="modal-content">
+            <h2>Alarm!</h2>
+            <p id="alarm-message"></p>
+            <button class="btn dismiss-alarm" id="dismiss-alarm-btn">Dismiss</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
